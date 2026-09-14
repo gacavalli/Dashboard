@@ -21,7 +21,7 @@ const CHARTS = [
   {
     dataKey: "leads",
     title: "Leads por dia",
-    description: "Leads offsite e on-Facebook somados.",
+    description: "Leads do pixel do site e conversas iniciadas somados.",
     variant: "bar",
     format: "integer",
     color: "var(--chart-2)",

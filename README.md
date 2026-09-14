@@ -42,11 +42,12 @@ token nunca aparece na resposta.
 
 - **Endpoint**: `/{versão}/act_<id>/insights` para a conta inteira e
   `/{versão}/<campaign_id>/insights` quando uma campanha é selecionada.
-- **Leads**: soma dos action types da Meta
-  `offsite_conversion.fb_pixel_lead` e `messaging_conversation_started_7d`
-  retornados em `actions` no endpoint de insights. Essa regra substitui a
-  contagem genérica de `lead` e reflete as fontes reais de captação atualmente
-  usadas no dashboard.
+- **Leads**: soma de dois `action_type` — **`offsite_conversion.fb_pixel_lead`**
+  (leads do pixel do site) e
+  **`onsite_conversion.messaging_conversation_started_7d`** (conversas iniciadas
+  por mensagem: WhatsApp, Messenger e Direct). São eventos distintos, então a
+  soma não duplica contagem. O nome precisa ser exato, com o prefixo — a
+  comparação é por igualdade. O `action_type` agregado `lead` não é mais usado.
 - **Custo por lead**: sempre calculado como `gasto ÷ leads`, no total e por dia.
   Somar `cost_per_action_type` entre períodos daria um número errado.
 - **Fuso**: os períodos são resolvidos no fuso da conta (`timezone_name`), que é

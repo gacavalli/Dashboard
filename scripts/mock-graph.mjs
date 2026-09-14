@@ -159,7 +159,7 @@ function rowFor(date, seed) {
         value: String(fbPixelLead),
       },
       {
-        action_type: "messaging_conversation_started_7d",
+        action_type: "onsite_conversion.messaging_conversation_started_7d",
         value: String(messagingLead),
       }
     )
@@ -170,7 +170,7 @@ function rowFor(date, seed) {
         value: (spend / Math.max(fbPixelLead, 1)).toFixed(2),
       },
       {
-        action_type: "messaging_conversation_started_7d",
+        action_type: "onsite_conversion.messaging_conversation_started_7d",
         value: (spend / Math.max(messagingLead, 1)).toFixed(2),
       },
     ]
@@ -182,7 +182,7 @@ function rowFor(date, seed) {
 function totalsRow(rows, range) {
   const LEAD_ACTION_TYPES = new Set([
     "offsite_conversion.fb_pixel_lead",
-    "messaging_conversation_started_7d",
+    "onsite_conversion.messaging_conversation_started_7d",
   ])
 
   const total = rows.reduce(
@@ -215,7 +215,10 @@ function totalsRow(rows, range) {
         action_type: "offsite_conversion.fb_pixel_lead",
         value: String(total.leads),
       },
-      { action_type: "messaging_conversation_started_7d", value: "0" },
+      {
+        action_type: "onsite_conversion.messaging_conversation_started_7d",
+        value: "0",
+      },
     ],
   }
 }

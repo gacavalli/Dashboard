@@ -14,7 +14,7 @@ import type { MetaActionStat, MetaInsightsRow } from "@/lib/meta/types"
  */
 const LEAD_ACTION_TYPES = new Set([
   "offsite_conversion.fb_pixel_lead",
-  "messaging_conversation_started_7d",
+  "onsite_conversion.messaging_conversation_started_7d",
 ])
 // export const LEAD_ACTION_TYPE = "lead"
 
